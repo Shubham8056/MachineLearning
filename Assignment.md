@@ -30,6 +30,10 @@
 
 > Testing1 <- training[-inTrain, ]
 
+#Observation of data
+
+head(Training1)
+
 #Create model on basis of significant parameters present in dataset.
 
 > model <- randomForest(classe ~ yaw_belt + roll_forearm +roll_belt + magnet_dumbbell_z + pitch_belt +pitch_forearm + magnet_dumbbell_y + magnet_dumbbell_x + accel_belt_z +  magnet_belt_z + magnet_forearm_z , data=Training1, method="class")
