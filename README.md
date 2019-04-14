@@ -15,7 +15,7 @@
 #Load the test data set
 > testing <- read.csv("C:/Users/Rabindra/Downloads/pml-testing.csv")
 
-
+#Remove all columns with missing values
 > training<-training[,colSums(is.na(training)) == 0] 
 
 > testing<-testing[,colSums(is.na(testing)) == 0]
@@ -26,7 +26,7 @@
 
 > Testing1 <- training[-inTrain, ]
 
-> model <- randomForest(classe ~ yaw_belt + roll_forearm +roll_belt + magnet_dumbbell_z + pitch_belt +pitch_forearm + magnet_dumbbell_y + magnet_dumbbell_x + accel_belt_z +  magnet_belt_z + magnet_forearm_z , data=subTraining, method="class")
+> model <- randomForest(classe ~ yaw_belt + roll_forearm +roll_belt + magnet_dumbbell_z + pitch_belt +pitch_forearm + magnet_dumbbell_y + magnet_dumbbell_x + accel_belt_z +  magnet_belt_z + magnet_forearm_z , data=Training1, method="class")
 
 > prediction <- predict(model, Testing1, type = "class")
 
@@ -70,8 +70,18 @@ Statistics by Class:
           Balanced Accuracy 0.9953   0.9903   0.9903   0.9937   0.9975
 
 
+#Final Prediction 
+
 > result <- predict(model, testing,type="class")
 
+>result
+
+
+
+    
+    1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 
+    B  A  B  A  A  E  D  B  A  A  B  C  B  A  E  E  A  B  B  B 
+    Levels: A B C D E
 
 
 
