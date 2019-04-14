@@ -30,8 +30,8 @@
 
 Confusion Matrix and Statistics
 
-          Reference
-Prediction    A    B    C    D    E
+          Reference         
+             A    B    C    D    E
          A 1384    4    1    0    0
          B    0  932    4    0    2
          C    9    8  843    5    0
