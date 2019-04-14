@@ -52,17 +52,18 @@ Overall Statistics
 Statistics by Class:
 
                      Class: A Class: B Class: C Class: D Class: E
-Sensitivity            0.9921   0.9821   0.9860   0.9913   0.9956
-Specificity            0.9986   0.9985   0.9946   0.9961   0.9995
-Pos Pred Value         0.9964   0.9936   0.9746   0.9803   0.9978
-Neg Pred Value         0.9969   0.9957   0.9970   0.9983   0.9990
-Prevalence             0.2845   0.1935   0.1743   0.1639   0.1837
-Detection Rate         0.2822   0.1900   0.1719   0.1625   0.1829
-Detection Prevalence   0.2832   0.1913   0.1764   0.1658   0.1833
-Balanced Accuracy      0.9953   0.9903   0.9903   0.9937   0.9975
+          Sensitivity  0.9921   0.9821   0.9860   0.9913   0.9956
+          Specificity  0.9986   0.9985   0.9946   0.9961   0.9995
+          Pos Pred Value 0.9964   0.9936   0.9746   0.9803   0.9978
+          Neg Pred Value 0.9969   0.9957   0.9970   0.9983   0.9990
+          Prevalence     0.2845   0.1935   0.1743   0.1639   0.1837
+          Detection Rate 0.2822   0.1900   0.1719   0.1625   0.1829
+          Detection Prevalence 0.2832   0.1913   0.1764   0.1658   0.1833
+          Balanced Accuracy 0.9953   0.9903   0.9903   0.9937   0.9975
 
 
-> result <- predict(model2, testingset, type="class")
+> result <- predict(model, testing,type="class")
+
 
 
 
