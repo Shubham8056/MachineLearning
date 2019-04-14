@@ -11,17 +11,25 @@
 
 #Load the train data set
 > training <- read.csv("C:/Users/Rabindra/Downloads/pml-training.csv")
+
 #Load the test data set
 > testing <- read.csv("C:/Users/Rabindra/Downloads/pml-testing.csv")
 
 
 > training<-training[,colSums(is.na(training)) == 0] 
+
 > testing<-testing[,colSums(is.na(testing)) == 0]
+
 > inTrain <- createDataPartition(y=training$classe, p=0.7, list=FALSE)
+
 > Training1 <- training[inTrain, ]
+
 > Testing1 <- training[-inTrain, ]
+
 > model <- randomForest(classe ~ yaw_belt + roll_forearm +roll_belt + magnet_dumbbell_z + pitch_belt +pitch_forearm + magnet_dumbbell_y + magnet_dumbbell_x + accel_belt_z +  magnet_belt_z + magnet_forearm_z , data=subTraining, method="class")
+
 > prediction <- predict(model, Testing1, type = "class")
+
 > confusionMatrix(prediction, Testing1$classe)
 
 
