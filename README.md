@@ -15,18 +15,22 @@
 #Load the test data set
 > testing <- read.csv("C:/Users/Rabindra/Downloads/pml-testing.csv")
 
-#Remove all columns with missing values
+#Remove all columns with NULL values
 > training<-training[,colSums(is.na(training)) == 0] 
 
 > testing<-testing[,colSums(is.na(testing)) == 0]
 
+#Divide Training data and Test data
 > inTrain <- createDataPartition(y=training$classe, p=0.7, list=FALSE)
 
 > Training1 <- training[inTrain, ]
 
 > Testing1 <- training[-inTrain, ]
 
+#Create model on basis of significant parameters present in dataset.
+
 > model <- randomForest(classe ~ yaw_belt + roll_forearm +roll_belt + magnet_dumbbell_z + pitch_belt +pitch_forearm + magnet_dumbbell_y + magnet_dumbbell_x + accel_belt_z +  magnet_belt_z + magnet_forearm_z , data=Training1, method="class")
+
 
 > prediction <- predict(model, Testing1, type = "class")
 
