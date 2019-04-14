@@ -108,7 +108,7 @@ Accuracy of Random Forest model is 98.96
     B  A  B  A  A  E  D  B  A  A  B  C  B  A  E  E  A  B  B  B 
     Levels: A B C D E
     
-  # Categorization on the basis of prediction
+
 
 
 
