@@ -15,6 +15,8 @@
 #Load the test data set
 > testing <- read.csv("C:/Users/Rabindra/Downloads/pml-testing.csv")
 
+> set.seed(1234)
+
 #Remove all columns with NULL values
 > training<-training[,colSums(is.na(training)) == 0] 
 
@@ -61,6 +63,7 @@ Overall Statistics
                                           
  Mcnemar's Test P-Value : NA              
 
+
 Statistics by Class:
 
                      Class: A Class: B Class: C Class: D Class: E
@@ -74,6 +77,8 @@ Statistics by Class:
           Balanced Accuracy 0.9953   0.9903   0.9903   0.9937   0.9975
 
 
+Accuracy of Random Forest model is 98.96
+
 #Final Prediction 
 
 > result <- predict(model, testing,type="class")
@@ -81,8 +86,8 @@ Statistics by Class:
 >result
 
 
+#Categorization on the basis of prediction
 
-    
     1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 
     B  A  B  A  A  E  D  B  A  A  B  C  B  A  E  E  A  B  B  B 
     Levels: A B C D E
