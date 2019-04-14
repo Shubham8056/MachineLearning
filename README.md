@@ -7,6 +7,7 @@
 
 #Load all the libraries
 > library(caret)
+
 > library(randomForest)
 
 #Load the train data set
