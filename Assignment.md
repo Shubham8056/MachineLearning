@@ -25,7 +25,7 @@ https://d396qusza40orc.cloudfront.net/predmachlearn/pml-testing.csv
 # Load the train data set
 > training <- read.csv("C:/Users/Rabindra/Downloads/pml-training.csv")
 
-#Load the test data set
+# Load the test data set
 > testing <- read.csv("C:/Users/Rabindra/Downloads/pml-testing.csv")
 
 > set.seed(1234)
