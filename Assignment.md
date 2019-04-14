@@ -96,11 +96,15 @@ Statistics by Class:
 
 Accuracy of Random Forest model is 98.96
 
+# Plot Graph for various classes
+
+> qplot(total_accel_belt,total_accel_forearm,col=classe,data=Training1)
+
 # Final Prediction 
 
 > result <- predict(model, testing,type="class")
 
->result
+> result
 
 
 
