@@ -17,12 +17,12 @@ https://d396qusza40orc.cloudfront.net/predmachlearn/pml-testing.csv
 
 
 
-#Load all the libraries
+# Load all the libraries
 > library(caret)
 
 > library(randomForest)
 
-#Load the train data set
+# Load the train data set
 > training <- read.csv("C:/Users/Rabindra/Downloads/pml-training.csv")
 
 #Load the test data set
@@ -30,23 +30,23 @@ https://d396qusza40orc.cloudfront.net/predmachlearn/pml-testing.csv
 
 > set.seed(1234)
 
-#Remove all columns with NULL values
+# Remove all columns with NULL values
 > training<-training[,colSums(is.na(training)) == 0] 
 
 > testing<-testing[,colSums(is.na(testing)) == 0]
 
-#Divide Training data and Test data
+# Divide Training data and Test data
 > inTrain <- createDataPartition(y=training$classe, p=0.7, list=FALSE)
 
 > Training1 <- training[inTrain, ]
 
 > Testing1 <- training[-inTrain, ]
 
-#Observation of data
+# Observation of data
 
 head(Training1)
 
-#Create model on basis of significant parameters present in dataset.
+# Create model on basis of significant parameters present in dataset.
 
 > model <- randomForest(classe ~ yaw_belt + roll_forearm +roll_belt + magnet_dumbbell_z + pitch_belt +pitch_forearm + magnet_dumbbell_y + magnet_dumbbell_x + accel_belt_z +  magnet_belt_z + magnet_forearm_z , data=Training1, method="class")
 
@@ -96,7 +96,7 @@ Statistics by Class:
 
 Accuracy of Random Forest model is 98.96
 
-#Final Prediction 
+# Final Prediction 
 
 > result <- predict(model, testing,type="class")
 
@@ -108,7 +108,7 @@ Accuracy of Random Forest model is 98.96
     B  A  B  A  A  E  D  B  A  A  B  C  B  A  E  E  A  B  B  B 
     Levels: A B C D E
     
-  #Categorization on the basis of prediction
+  # Categorization on the basis of prediction
 
 
 
