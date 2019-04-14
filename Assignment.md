@@ -44,7 +44,7 @@ https://d396qusza40orc.cloudfront.net/predmachlearn/pml-testing.csv
 
 # Observation of data
 
-head(Training1)
+> head(Training1)
 
 # Create Random Forest model on basis of significant parameters present in dataset.
 
