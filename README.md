@@ -1,19 +1,26 @@
 # MachineLearning
-Prediction Assignment
-Background
+# Prediction Assignment
 
-Using devices such as Jawbone Up, Nike FuelBand, and Fitbit it is now possible to collect a large amount of data about personal activity relatively inexpensively. These type of devices are part of the quantified self movement – a group of enthusiasts who take measurements about themselves regularly to improve their health, to find patterns in their behavior, or because they are tech geeks. One thing that people regularly do is quantify how much of a particular activity they do, but they rarely quantify how well they do it. In this project, your goal will be to use data from accelerometers on the belt, forearm, arm, and dumbell of 6 participants. They were asked to perform barbell lifts correctly and incorrectly in 5 different ways. More information is available from the website here: http://web.archive.org/web/20161224072740/http:/groupware.les.inf.puc-rio.br/har (see the section on the Weight Lifting Exercise Dataset).
+# Background
+
+# Using devices such as Jawbone Up, Nike FuelBand, and Fitbit it is now possible to collect a large amount of data about personal activity relatively inexpensively. These type of devices are part of the quantified self movement – a group of enthusiasts who take measurements about themselves regularly to improve their health, to find patterns in their behavior, or because they are tech geeks. One thing that people regularly do is quantify how much of a particular activity they do, but they rarely quantify how well they do it. In this project, your goal will be to use data from accelerometers on the belt, forearm, arm, and dumbell of 6 participants. They were asked to perform barbell lifts correctly and incorrectly in 5 different ways. More information is available from the website here: http://web.archive.org/web/20161224072740/http:/groupware.les.inf.puc-rio.br/har (see the section on the Weight Lifting Exercise Dataset).
+
 #Load all the libraries
 > library(caret)
 > library(randomForest)
+
+#Load the train data set
 > training <- read.csv("C:/Users/Rabindra/Downloads/pml-training.csv")
+#Load the test data set
 > testing <- read.csv("C:/Users/Rabindra/Downloads/pml-testing.csv")
+
+
 > training<-training[,colSums(is.na(training)) == 0] 
 > testing<-testing[,colSums(is.na(testing)) == 0]
 > inTrain <- createDataPartition(y=training$classe, p=0.7, list=FALSE)
 > Training1 <- training[inTrain, ]
 > Testing1 <- training[-inTrain, ]
-> model <- randomForest(classe ~ yaw_belt + roll_forearm +roll_belt + magnet_dumbbell_z + pitch_belt +pitch_forearm + magnet_dumbbell_y + magnet_dumbbell_x + accel_belt_z +  magnet_belt_z +magnet_forearm_y + magnet_forearm_z , data=subTraining, method="class")
+> model <- randomForest(classe ~ yaw_belt + roll_forearm +roll_belt + magnet_dumbbell_z + pitch_belt +pitch_forearm + magnet_dumbbell_y + magnet_dumbbell_x + accel_belt_z +  magnet_belt_z + magnet_forearm_z , data=subTraining, method="class")
 > prediction <- predict(model, Testing1, type = "class")
 > confusionMatrix(prediction, Testing1$classe)
 
@@ -51,6 +58,9 @@ Prevalence             0.2845   0.1935   0.1743   0.1639   0.1837
 Detection Rate         0.2822   0.1900   0.1719   0.1625   0.1829
 Detection Prevalence   0.2832   0.1913   0.1764   0.1658   0.1833
 Balanced Accuracy      0.9953   0.9903   0.9903   0.9937   0.9975
+
+
+> result <- predict(model2, testingset, type="class")
 
 
 
